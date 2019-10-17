@@ -1,0 +1,41 @@
+//SR番号取得
+srnum=document.getElementById("pt1:r1:0:m_region:pgl7").getElementsByTagName("span")[2].textContent;
+
+//デバッグ用
+var n;
+if(n){
+}else{
+n=0;
+}
+
+//ノート数特定
+for(i=0;document.getElementById("pt1:r1:0:m_region:tHist:" + i + ":psl5") !== null;i++){
+length=i;
+}
+
+//SR更新 最新更新の時間取得
+//▼ora,cust 判別
+date_id="pt1:r1:0:m_region:tHist:" + n + ":psl5";
+
+if(document.getElementById(date_id).children[0].getElementsByTagName("span")[1]){
+	console.log("cust");
+	children_num=0;
+	name=document.getElementById(date_id).children[0].getElementsByTagName("span")[0].innerHTML;
+}else{
+	console.log("oracle");
+	children_num=1;
+	name=document.getElementById(date_id).children[1].getElementsByTagName("span")[0].innerHTML;
+}
+
+//時間表記の整形
+oradate=document.getElementById(date_id).children[children_num].getElementsByTagName("span")[1].title.split(' ');
+oradate=oradate[0] + " " + oradate[1];
+
+
+//本文
+content_id="pt1:r1:0:m_region:tHist:" + n + ":pgl12";
+content=document.getElementById(content_id).innerText;
+
+//print
+print=srnum + "\n" + oradate + "\n-----------------------------------------------------------------------------\n" + content;
+alert(print);
