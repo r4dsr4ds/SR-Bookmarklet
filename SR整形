@@ -1,5 +1,3 @@
-//SR番号取得
-srnum=document.getElementById("pt1:r1:0:m_region:pgl7").getElementsByTagName("span")[2].textContent;
 
 //デバッグ用
 var n;
@@ -8,10 +6,15 @@ if(n){
 n=0;
 }
 
+
+//SR番号 + サマリ取得
+srnum=document.getElementById("pt1:r1:0:m_region:pgl7").getElementsByTagName("span")[2].textContent;
+
+
 //ノート数特定
-for(i=0;document.getElementById("pt1:r1:0:m_region:tHist:" + i + ":psl5") !== null;i++){
-length=i;
-}
+//for(i=0;document.getElementById("pt1:r1:0:m_region:tHist:" + i + ":psl5") !== null;i++){
+//length=i;
+//}
 
 //SR更新 最新更新の時間取得
 //▼ora,cust 判別
@@ -37,5 +40,5 @@ content_id="pt1:r1:0:m_region:tHist:" + n + ":pgl12";
 content=document.getElementById(content_id).innerText;
 
 //print
-print=srnum + "\n" + oradate + "\n-----------------------------------------------------------------------------\n" + content;
+print=srnum + "\n" + oradate + "\n-----------------------------------------------------------------------------\n" + name + "\n--------------------------------------\n" + content;
 alert(print);
