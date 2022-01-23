@@ -39,6 +39,18 @@ oradate=oradate[0] + " " + oradate[1];
 content_id="pt1:r1:0:m_region:tHist:" + n + ":pgl12";
 content=document.getElementById(content_id).innerText;
 
-//print
+//整形
 print=srnum + "\n" + oradate + "\n-----------------------------------------------------------------------------\n" + name + "\n--------------------------------------\n" + content;
-alert(print);
+
+//クリップボード処理
+textarea = document.createElement('textarea');
+textarea.textContent = print;
+
+document.body.appendChild(textarea);
+textarea.select();
+document.execCommand('copy');
+document.body.removeChild(textarea);
+
+alert("★クリップボードにコピーしました。");
+
+//alert(print);
